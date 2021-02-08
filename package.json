@@ -1,0 +1,9 @@
+{
+    "dependencies": {
+        "discord.js": "latest",
+        "dotenv": "latest"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
+}
