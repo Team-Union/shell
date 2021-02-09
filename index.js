@@ -42,6 +42,6 @@ client.on('message', message => {
     });
     setTimeout(() => {
         p.kill();
-    }, 3000);
+    }, 7000);
 });
 client.login(process.env.TOKEN);
