@@ -27,10 +27,10 @@ client.on('message', message => {
             });
         }
     });
-    p.on('stdout', text => {
+    p.stdout.on('data', text => {
         out += `${text}\n`;
     });
-    p.on('stderr', text => {
+    p.stderr.on('data', text => {
         out += `${text}\n`;
     });
 });
