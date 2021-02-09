@@ -16,7 +16,6 @@ client.on('message', message => {
     if (message.channel.type != 'text') return;
     if (message.channel.id != '808315682898444320') return;
     let out = '';
-    if (message.content.includes('yarn') || message.content.includes('npm') || message.content.includes('git') || message.content.includes('npx')) return;
     let p = child.exec(message.content, {
         shell: '/usr/bin/bash'
     }, () => {
