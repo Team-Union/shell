@@ -16,7 +16,7 @@ client.on('message', message => {
     if (message.channel.type != 'text') return;
     if (message.channel.id != '808315682898444320') return;
     let out = '';
-    if (message.content.includes('pm2') return;
+    if (message.content.includes('pm2')) return;
     let p = child.exec(message.content, {
         shell: '/usr/bin/bash'
     }, () => {
