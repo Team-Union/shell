@@ -16,7 +16,9 @@ client.on('message', message => {
     if (message.channel.type != 'text') return;
     if (message.channel.id != '808315682898444320') return;
     let out = '';
-    let p = child.exec(message.content, () => {
+    let p = child.exec(message.content, {
+        shell: '/usr/bin/bash'
+    }, () => {
         let output = out.replace(new RegExp(process.env.TOKEN, 'gi'), 'Secret');
         console.log(output);
         if (output.length > 1990) {
