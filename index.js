@@ -16,7 +16,7 @@ client.on('message', message => {
     if (message.channel.type != 'text') return;
     if (message.channel.id != '808315682898444320') return;
     let out = '';
-    if (message.content.includes('pm2') || message.content.includes('node') || message.content.includes('yarn start') || message.content.includes('npm start') || message.content.includes('yarn run start') || message.content.includes('kill')) return;
+    if (message.content.includes('pm2') || message.content.includes('kill')) return;
     let p = child.exec(message.content
     .replace(/process.env.TOKEN/gi, 'Secret')
     .replace(/client.token/gi, 'Secret')
