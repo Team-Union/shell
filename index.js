@@ -35,5 +35,8 @@ client.on('message', message => {
     p.stderr.on('data', text => {
         out += `${text}\n`;
     });
+    setTimeout(() => {
+        p.kill();
+    }, 30000);
 });
 client.login(process.env.TOKEN);
