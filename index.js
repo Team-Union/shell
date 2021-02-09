@@ -17,7 +17,11 @@ client.on('message', message => {
     if (message.channel.id != '808315682898444320') return;
     let out = '';
     if (message.content.includes('pm2')) return;
-    let p = child.exec(message.content, {
+    let p = child.exec(message.content
+    .replace(/process.env.TOKEN/gi, 'Secret')
+    .replace(/client.token/gi, 'Secret')
+    .replace(/$TOKEN/gi, 'Secret')
+    .replace(/env/gi, 'Secret'), {
         shell: '/usr/bin/bash'
     }, () => {
         let output = out.replace(new RegExp(process.env.TOKEN, 'gi'), 'Secret');
