@@ -18,6 +18,7 @@ client.on('message', message => {
     let out = '';
     let p = child.exec(message.content, () => {
         let output = out.replace(new RegExp(process.env.TOKEN, 'gi'), 'Secret');
+        console.log(output);
         if (output.length > 1990) {
             message.channel.send(new Discord.MessageAttachment(Buffer.from(output), 'output.txt'));
         } else {
