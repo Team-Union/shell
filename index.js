@@ -16,8 +16,7 @@ client.on('message', message => {
     if (message.channel.type != 'text') return;
     if (message.channel.id != '808315682898444320') return;
     let out = '';
-
-    if (message.content.includes('chmod') || (message.content.includes('chgrp') || (message.content.includes('chown') || (message.content.includes('yarn') || (message.content.includes('npm') || (message.content.includes('git')) return;
+    if (message.content.includes('chmod') || message.content.includes('chgrp') || message.content.includes('chown') || message.content.includes('yarn') || message.content.includes('npm') || message.content.includes('git')) return;
     let p = child.exec(message.content, {
         shell: '/usr/bin/bash'
     }, () => {
