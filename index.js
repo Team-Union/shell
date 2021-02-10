@@ -16,12 +16,8 @@ client.on('message', message => {
     if (message.channel.type != 'text') return;
     if (message.channel.id != '808315682898444320') return;
     let out = '';
-    if (message.content.includes('pm2') || message.content.includes('kill')) return;
-    let p = child.exec(message.content
-    .replace(/process.env.TOKEN/gi, 'Secret')
-    .replace(/client.token/gi, 'Secret')
-    .replace(/$TOKEN/gi, 'Secret')
-    .replace(/env/gi, 'Secret'), {
+    if (child.execSync(`docker ps -a | grep -E ${message.author.id} -`).toString == '') child.execSync(`docker run -dit --name=${message.author.id} 24d849b9544e`);
+    let p = child.exec(`docker exec ${message.author.id} ${message.content}`, {
         shell: '/usr/bin/bash'
     }, () => {
         let output = out.replace(new RegExp(process.env.TOKEN, 'gi'), 'Secret');
@@ -40,8 +36,5 @@ client.on('message', message => {
     p.stderr.on('data', text => {
         out += `${text}\n`;
     });
-    setTimeout(() => {
-        p.kill();
-    }, 4000);
 });
 client.login(process.env.TOKEN);
