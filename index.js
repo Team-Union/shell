@@ -18,7 +18,7 @@ client.on('message', message => {
     let out = '';
     try {
         child.execSync(`docker ps -a | grep -E ${message.author.id} -`)
-    } catch () {
+    } catch (e) {
         child.execSync(`docker run -dit --name=${message.author.id} e11460928866`);
     }
     let p = child.exec(`docker exec ${message.author.id} ${message.content}`, {
