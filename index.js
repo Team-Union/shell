@@ -16,7 +16,11 @@ client.on('message', message => {
     if (message.channel.type != 'text') return;
     if (message.channel.id != '808315682898444320') return;
     let out = '';
-    if (child.execSync(`docker ps -a | grep -E ${message.author.id} -`).toString == '') child.execSync(`docker run -dit --name=${message.author.id} e11460928866`);
+    try {
+        child.execSync(`docker ps -a | grep -E ${message.author.id} -`)
+    } catch () {
+        child.execSync(`docker run -dit --name=${message.author.id} e11460928866`);
+    }
     let p = child.exec(`docker exec ${message.author.id} ${message.content}`, {
         shell: '/usr/bin/bash'
     }, () => {
